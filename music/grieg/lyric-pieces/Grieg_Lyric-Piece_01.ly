@@ -3,9 +3,7 @@
 
 %{
 TODO:
-- Slurs. or no slurs since there's pedal? 
 - Force page spacing
-- make RH dynamics smaller
 - Make slurs pretty again
 %}
 
@@ -42,7 +40,7 @@ right_hand_dynamics = {
    s2 |
    s4 s16\< s8\> s16\! |
    s2 |
-   s2^"ritard." |
+   s2^"rit." |
    
 }
 
@@ -50,7 +48,7 @@ right_hand = {
    \clef treble
    \key e-flat \major
    \time 2/4
-   \tempo "Poco andante e sostenuto" 8 = 75
+   \tempo "Poco andante e sostenuto" 4 = 40
    
    % Measure 1--4  
    \stemUp g''8 g''8 g''8 g''8 |
@@ -59,31 +57,31 @@ right_hand = {
    f''8 d''8 e-flat''4 | \break
    
    % Measure 5--8
-   e-flat''8\staccato e-flat''8^( d''8) d''8^( |
-   c''8) c''8 b-flat'4 |
-   e-flat''8\staccato e-flat''8^( d''8) b-flat'16 d''16^( |
-   c''8) c''8 b-flat'4 | \break
+   e-flat''8^\staccato e-flat''8 d''8 d''8 |
+   c''8 c''8 b-flat'4 |
+   e-flat''8^\staccato e-flat''8 d''8 b-flat'16 d''16 |
+   c''8 c''8 b-flat'4 | \break
    
    % Measure 9--13
    a'8^( b-flat'16 c''16 d''16 f''8 e-flat''16) |
-   <c' f-sharp'>4( <b-flat g'>4) |
+   <<{f-sharp'4( g'4)}\\{\stemUp c'4( b-flat4)}>> |
    f'8^( g'16 a-flat'16 b'16 d''8 c''16) |
    <<{e-flat'2}\\{a4.( b-flat8)}>>  |
-   \acciaccatura {\slurUp e-flat'16 g'16} g''8\staccato g''8 g''8 g''8 | \break
+   \acciaccatura {\bar "" \slurUp e-flat'16 g'16 \bar "|"} g''8^\staccato g''8 g''8 g''8 | \break
    
    % Measure 14--17
    g''8 e''8 f''4 |
    f''8 f''8 f''8 f''8 |
    f''8 d''8 e-flat''4 |
-   b-flat'8 b-flat'8^( a'8\staccato) f'16 a'16^( | \break
+   b-flat'8 b-flat'8 a'8^\staccato f'16 a'16 | \break
    
    % Measure 18--23
-   a-flat'8\staccato) a-flat'8 g'4 |
+   a-flat'8^\staccato a-flat'8 g'4 |
    f'8^( g'16 a-flat'16 b'16 d''8 c''16) |
-   <a-flat d'>4( <g e-flat'>4) |
+   <<{d'4( e-flat'4)}\\{\stemUp a-flat4( g4)}>> |
    f'8^( g'16 a-flat'16 b'16 d''8 c''16) |
    <<{e-flat'2}\\{a4.( b-flat8)}>> |
-   \acciaccatura {\slurUp e-flat'16 g'16} g''8\staccato g''8 g''8 g''8\fermata | \fine
+   \acciaccatura {\bar "" \slurUp e-flat'16 g'16 \bar "|"} g''8^\staccato g''8 g''8 g''8\fermata | \fine
 }
 
 
@@ -146,7 +144,7 @@ left_hand = {
    <<{a4( g4)}\\{e-flat2}>> |
    <<{\slurDown e-flat16( f16 \change Staff = "right_hand" \stemDown c'16 e-flat'16) c'4\rest}\\{a-flat,4 d4\rest}>> |
    <<{f-sharp4.( g8)}\\{b-flat,2~}>> |
-   <<{\slurDown e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \stemUp b-flat16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16)}\\{b-flat,4 b-flat4}>> | \break
+   <<{\slurDown e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \stemUp b-flat16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16)}\\{b-flat,4 r4}>> | \break
    
    % Measure 14--17
    <<{\slurDown c-flat'16( d'16 \change Staff = "right_hand" \stemDown a-flat'16 c-flat''16) \change Staff = "left_hand" \stemUp c-flat'16( d'16 \change Staff = "right_hand" \stemDown a-flat'16 c-flat''16)}\\{R2}>> |
@@ -157,10 +155,10 @@ left_hand = {
    % Measure 18--23
    <<{\slurDown f,16( e-flat16 \change Staff = "right_hand" \stemDown a-flat16 e-flat'16) \change Staff = "left_hand" \stemUp g,16( e-flat16 \change Staff = "right_hand" \stemDown b-flat16 e-flat'16)}\\{f,4 g,4}>> |
    <<{\slurDown a-flat,16( e-flat16 \change Staff = "right_hand" \stemDown c'16 e-flat'16) c'4\rest}\\{a-flat,4 d4\rest}>> |
-   <b, f>4( <c e-flat>4) |
+   <<{\stemDown f4( e-flat4)}\\{b,4( c4)}>> |
    <<{\slurDown e-flat16( f16 \change Staff = "right_hand" \stemDown c'16 e-flat'16) c'4\rest}\\{a-flat,4 d4\rest}>> |
    <<{f-sharp4.( g8)}\\{b-flat,2~}>> |
-   <<{\slurDown e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \stemUp b-flat16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16)}\\{b-flat,4 b-flat4}>> | \fine
+   <<{\slurDown e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \stemUp b-flat16\fermata e-flat'16\fermata \change Staff = "right_hand" \stemDown g'16_\fermata b-flat'16_\fermata}\\{b-flat,4 b-flat4}>> | \fine
 }
 
 
@@ -220,7 +218,6 @@ pedal = {
 \bookpart {
    \header {
       title = "Arietta"
-      subtitle = "Arietta"
       composer = "Edvard Grieg"
       opus = "Opus 12, No. 1"
       piece = "Lyric Pieces #1"
