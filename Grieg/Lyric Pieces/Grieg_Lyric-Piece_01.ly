@@ -3,8 +3,15 @@
 
 %{
 TODO:
-- Force page spacing
-- Make slurs pretty again
+- Book part?
+- RH
+- LH
+- Dynamics
+- Pedal fixes + styling
+
+- RH dynamics
+- Page spacing
+- Make slurs pretty
 %}
 
 
@@ -48,7 +55,7 @@ right_hand = {
    \clef treble
    \key e-flat \major
    \time 2/4
-   \tempo "Poco andante e sostenuto" 4 = 40
+   \tempo "Poco andante e sostenuto"
    
    % Measure 1--4  
    \stemUp g''8 g''8 g''8 g''8 |
@@ -163,50 +170,44 @@ left_hand = {
 
 
 pedal = {
-   \set Staff.pedalSustainStyle = #'bracket
+   \set Staff.pedalSustainStyle = #'text
    
    % Measure 1--4
-   s4\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
+   s4\sustainOn s4\sustainOff |
+   s2 |
+   s2 |
+   s2 |
    
    % Measure 5--8
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
    
    % Measure 9--13
-   s4\sustainOff\sustainOn s8.\sustainOff s16 \sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s8.\sustainOff s16 \sustainOn |
-   s4.\sustainOff\sustainOn s8\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
+   s4\sustainOn s4\sustainOff |
+   s2 |
+   s4\sustainOn s4\sustainOff |
+   s2 |
+   s4\sustainOn s4\sustainOff |
    
    % Measure 14--17
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
    
    % Measure 18--23
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s8.\sustainOff s16 \sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s8.\sustainOff s16 \sustainOn |
-   s4.\sustainOff\sustainOn s8\sustainOff\sustainOn |
-   s4\sustainOff\sustainOn s4\sustainOff\sustainOn |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 | 
+   s4\sustainOn s4\sustainOff | \fine
 }
 
 
-\paper {
-   #(set-paper-size '(cons (* 9 in) (* 12 in)))
-   top-margin = 0.625\in
-   bottom-margin = 0.625\in
-   left-margin = 0.625\in
-   right-margin = 0.625\in
-   
+\paper {   
    system-system-spacing =
     #'((basic-distance . 12)
        (minimum-distance . 8)
@@ -227,7 +228,7 @@ pedal = {
    \score {
       \new PianoStaff \with {instrumentName = "Piano"}
       <<
-         \new Dynamics \right_hand_dynamics
+         %\new Dynamics \right_hand_dynamics
          \new Staff = "right_hand" \right_hand
          \new Dynamics \dynamics
          \new Staff = "left_hand" \left_hand
@@ -241,3 +242,4 @@ pedal = {
       }
    }
 }
+
