@@ -3,12 +3,9 @@
 
 %{
 TODO:
-- Book part?
-- RH
 - LH
 - Dynamics
 - Pedal fixes + styling
-
 - RH dynamics
 - Page spacing
 - Make slurs pretty
@@ -58,21 +55,21 @@ right_hand = {
    \tempo "Poco andante e sostenuto"
    
    % Measure 1--4  
-   \stemUp g''8 g''8 g''8 g''8 |
+   \stemUp \slurUp g''8 g''8 g''8 g''8 |
    g''8 e''8 f''4 |
    f''8 f''8 f''8 f''8 |
    f''8 d''8 e-flat''4 | \break
    
    % Measure 5--8
-   e-flat''8^\staccato e-flat''8 d''8 d''8 |
-   c''8 c''8 b-flat'4 |
-   e-flat''8^\staccato e-flat''8 d''8 b-flat'16 d''16 |
-   c''8 c''8 b-flat'4 | \break
+   e-flat''8^\staccato e-flat''8( d''8) d''8( |
+   c''8) c''8 b-flat'4 |
+   e-flat''8^\staccato e-flat''8( d''8) b-flat'16 d''16( |
+   c''8) c''8 b-flat'4 | \break
    
    % Measure 9--13
    a'8^( b-flat'16 c''16 d''16 f''8 e-flat''16) |
    <<{f-sharp'4( g'4)}\\{\stemUp c'4( b-flat4)}>> |
-   f'8^( g'16 a-flat'16 b'16 d''8 c''16) |
+   f'?8^( g'16 a-flat'16 b'16 d''8 c''16) |
    <<{e-flat'2}\\{a4.( b-flat8)}>>  |
    \acciaccatura {\bar "" \slurUp e-flat'16 g'16 \bar "|"} g''8^\staccato g''8 g''8 g''8 | \break
    
@@ -80,10 +77,10 @@ right_hand = {
    g''8 e''8 f''4 |
    f''8 f''8 f''8 f''8 |
    f''8 d''8 e-flat''4 |
-   b-flat'8 b-flat'8 a'8^\staccato f'16 a'16 | \break
+   b-flat'8 b-flat'8( a'8^\staccato) f'16 a'16( | \break
    
    % Measure 18--23
-   a-flat'8^\staccato a-flat'8 g'4 |
+   a-flat'?8^\staccato) a-flat'8 g'4 |
    f'8^( g'16 a-flat'16 b'16 d''8 c''16) |
    <<{d'4( e-flat'4)}\\{\stemUp a-flat4( g4)}>> |
    f'8^( g'16 a-flat'16 b'16 d''8 c''16) |

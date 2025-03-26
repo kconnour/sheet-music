@@ -18,4 +18,3 @@
 
 \include "Grieg_Lyric-Piece_01.ly"
 
-
