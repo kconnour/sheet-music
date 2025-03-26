@@ -3,9 +3,7 @@
 
 %{
 TODO:
-- LH
 - Dynamics
-- Pedal fixes + styling
 - RH dynamics
 - Page spacing
 - Make slurs pretty
@@ -148,7 +146,7 @@ left_hand = {
    <<{a4( g4)}\\{e-flat2}>> |
    <<{\slurDown e-flat16( f16 \change Staff = "right_hand" \stemDown c'16 e-flat'16) c'4\rest}\\{a-flat,4 d4\rest}>> |
    <<{f-sharp4.( g8)}\\{b-flat,2~}>> |
-   <<{\slurDown e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \stemUp b-flat16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16)}\\{b-flat,4 r4}>> | \break
+   <<{e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \slurDown \stemUp b-flat16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16)}\\{b-flat,4 r4}>> | \break
    
    % Measure 14--17
    <<{\slurDown c-flat'16( d'16 \change Staff = "right_hand" \stemDown a-flat'16 c-flat''16) \change Staff = "left_hand" \stemUp c-flat'16( d'16 \change Staff = "right_hand" \stemDown a-flat'16 c-flat''16)}\\{R2}>> |
@@ -162,7 +160,7 @@ left_hand = {
    <<{\stemDown f4( e-flat4)}\\{b,4( c4)}>> |
    <<{\slurDown e-flat16( f16 \change Staff = "right_hand" \stemDown c'16 e-flat'16) c'4\rest}\\{a-flat,4 d4\rest}>> |
    <<{f-sharp4.( g8)}\\{b-flat,2~}>> |
-   <<{\slurDown e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \stemUp b-flat16\fermata e-flat'16\fermata \change Staff = "right_hand" \stemDown g'16_\fermata b-flat'16_\fermata}\\{b-flat,4 b-flat4}>> | \fine
+   <<{\slurDown e-flat,16( e-flat'16 \change Staff = "right_hand" \stemDown g'16 b-flat'16) \change Staff = "left_hand" \stemUp b-flat16_\fermata e-flat'16_\fermata \change Staff = "right_hand" \stemDown g'16_\fermata b-flat'16_\fermata}\\{b-flat,4 b-flat4}>> | \fine
 }
 
 
@@ -170,7 +168,7 @@ pedal = {
    \set Staff.pedalSustainStyle = #'text
    
    % Measure 1--4
-   s4\sustainOn s4\sustainOff |
+   s2\sustainOn |
    s2 |
    s2 |
    s2 |
@@ -182,11 +180,11 @@ pedal = {
    s2 |
    
    % Measure 9--13
-   s4\sustainOn s4\sustainOff |
+   s8.\sustainOn s16\sustainOff s4 |
    s2 |
-   s4\sustainOn s4\sustainOff |
+   s8.\sustainOn s16\sustainOff s4 |
    s2 |
-   s4\sustainOn s4\sustainOff |
+   s2\sustainOn |
    
    % Measure 14--17
    s2 |
@@ -200,7 +198,7 @@ pedal = {
    s2 |
    s2 |
    s2 | 
-   s4\sustainOn s4\sustainOff | \fine
+   s4\sustainOn s8. s16\sustainOff | \fine
 }
 
 
