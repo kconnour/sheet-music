@@ -1,14 +1,6 @@
 \version "2.24.0"
 \language "english"
 
-%{
-TODO:
-- Dynamics
-- RH dynamics
-- Page spacing
-- Make slurs pretty
-%}
-
 
 right_hand_dynamics = {
    % Measure 1--4 
@@ -42,9 +34,9 @@ right_hand_dynamics = {
    s2 |
    s4 s16\< s8\> s16\! |
    s2 |
-   s2^"rit." |
-   
+   s2^"ritard." |
 }
+
 
 right_hand = {
    \clef treble
@@ -88,7 +80,7 @@ right_hand = {
 
 
 dynamics = {
-   \override DynamicText.X-offset = #-2
+   \override DynamicText.X-offset = #-1
    
    % Measure 1--4
    s2\p |
@@ -121,6 +113,7 @@ dynamics = {
    s2 |
    s2 |
    s2 |
+   \override DynamicText.X-offset = #-4
    s2\pp |
 }
 
@@ -202,15 +195,6 @@ pedal = {
 }
 
 
-\paper {   
-   system-system-spacing =
-    #'((basic-distance . 12)
-       (minimum-distance . 8)
-       (padding . 1)
-       (stretchability . 60))
-}
-
-
 \bookpart {
    \header {
       title = "Arietta"
@@ -219,11 +203,20 @@ pedal = {
       piece = "Lyric Pieces #1"
       tagline = ##f
    }
+   
+   \paper {   
+      system-system-spacing =
+      #'((basic-distance . 12)
+         (minimum-distance . 8)
+         (padding . 5)
+         (stretchability . 60))
+      min-systems-per-page = 5
+   }
 
    \score {
       \new PianoStaff \with {instrumentName = "Piano"}
       <<
-         %\new Dynamics \right_hand_dynamics
+         \new Dynamics \right_hand_dynamics
          \new Staff = "right_hand" \right_hand
          \new Dynamics \dynamics
          \new Staff = "left_hand" \left_hand
@@ -237,4 +230,3 @@ pedal = {
       }
    }
 }
-
