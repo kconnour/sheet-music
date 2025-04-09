@@ -17,3 +17,4 @@
 
 
 \include "Grieg_Lyric-Piece_01.ly"
+\include "Grieg_Lyric-Piece_02.ly"
