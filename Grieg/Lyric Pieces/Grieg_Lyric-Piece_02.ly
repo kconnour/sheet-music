@@ -134,8 +134,8 @@ dynamics = {
    s2.\< |
    
    % Measure 16--23
-   s2. |
-   s2. |
+   s4 s2\! |
+   s2.\f
    s4 s2\p |
    s2.\p |
    s2. |
@@ -284,8 +284,8 @@ left_hand = {
    \acciaccatura g-sharp'8 f-sharp'8 e'8\staccato) e'2\accent |
    a'2( e'8 f-sharp'8 |
    f-sharp'8 f-sharpsharp'8\staccato) f-sharpsharp'2\accent |
-   f-sharpsharp'8( g-sharp'8\staccato) g-sharp'2\accent |
-   g-sharp'8(^\markup{\italic ritard.} a'8\staccato) a'2\accent |
+   f-sharpsharp'8(^\markup{\italic ritard.} g-sharp'8\staccato) g-sharp'2\accent |
+   g-sharp'8( a'8\staccato) a'2\accent |
    \bar "||" \key a \minor \clef bass
    a,4( <e c'>4) <e c'>4 |
    a,4( <e c'>4) <e c'>4 | \break
