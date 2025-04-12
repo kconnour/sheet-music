@@ -4,17 +4,22 @@
 
 %{
 TODO:
-- LH score matches urtext check
-- make LH score pretty
 - RH score matches urtext check
 - make RH score pretty
 
 - get rid of all warnings/errors
+- add RH dynamics (none?)
+- add LH dynamics (there are a few)
 - add pedal
 - add dynamics
 - regroup measures
-- slurs pretty
 - paper variables
+- slurs pretty
+
+
+DONE:
+- LH score matches urtext check
+- LH score is pretty
 %}
 
 right_hand = {
@@ -137,15 +142,13 @@ left_hand = {
    
    % Measure 1--6
    R2\fermata |
-   R2\fermata | \bar"||" 
-      \stemDown
+   R2\fermata | \bar"||" \stemDown 
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
-   <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent | \bar"||" \break
+   <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent | \bar"||" \stemNeutral  \break
    
    % Measure 7--11
-      \stemNeutral 
    b-flat,,8 r16 <f b-flat d' g'>16 r8 <f b-flat d' g'>8 |
    b-flat,,8 r16 <f a? e-flat' f'>16 r8 <f a e-flat' f'>8 |
    b-flat,,8 r16 <f b-flat d' g'>16 r8 <f b-flat d' g'>8 |
@@ -166,10 +169,10 @@ left_hand = {
    <b-flat,, b-flat,>8 <d-flat, d-flat>8 <e, e>8 <g,? g?>8 | \break
    
    % Measure 21
-   c,8 g,16 g16~g16 g16 g'8\accent |
-   c,8 g,16 g16~g16 g'16 r8 |
-   c,8 r16 <g, g>16~<g, g>16 c8 e16 | 
-   c,8 r16 <g, g>16~<g, g>16 c8 e16 | \break \pageBreak
+   c,8 g,16 g16~ g16 g16 g'8\accent |
+   c,8 g,16 g16~ g16 g'16 r8 |
+   c,8 r16 <g, g>16~ <g, g>16 c8 e16 | 
+   c,8 r16 <g, g>16~ <g, g>16 c8 e16 | \break \pageBreak
    
    % Measure 25
    c,8 r16 <g, g>16~<g, g>16 c8 e16 | 
@@ -178,39 +181,37 @@ left_hand = {
    c,8 r16 <g, g>16~<g, g>16 c8 e16 | \break
    
    % Measure 29
-   <c, c>8 <e-flat,? e-flat?>8 <g-flat, g-flat>8 <a,? a?>8 |
-   d,8 a,16 a16~a16 a16 a'8\accent |
-   d,8 a,16 a16~a16 a'16 r8 |
-   d,8 \clef treble r16 <a' d'' g''>16~<a' d'' g''>8 <a' d'' f''?>8 | \break
+   <c, c>8 <e-flat,? e-flat?>8 <g-flat, g-flat>8 <a, a>8 |
+   d,8_[ a,16 a16]~ a16[ a16 a'8\accent] |
+   d,8_[ a,16 a16]~ a16 a'16] r8 |
+   d,8 \clef treble r16 <a' d'' g''>16~<a' d'' g''>8 <a' d'' f''>8 | \break
    
    % Measure 33
-   \clef bass
-   d,8 \clef treble r16 <a-flat' c'' e''>16~ <a-flat' c'' e''>8 <a-flat' c'' d''>8 |
+   \clef bass d,8 \clef treble r16 <a-flat' c'' e''>16~ <a-flat' c'' e''>8 <a-flat' c'' d''>8 |
    \clef bass g,,8 \clef treble r16 <a-flat' c'' f''>16~ <a-flat' c'' f''>8 <b' d''>8 |
-   \clef bass c,8 \clef treble r16 <e' g' d''>16~ <e' g' d''>8 
-   <e' g' c''>8 |
+   \clef bass c,8 \clef treble r16 <e' g' d''>16~ <e' g' d''>8 <e' g' c''>8 |
    \clef bass <c, g,>8 b-flat8\accent[ e-flat?8\accent e\accent] | \break
    
    % Measure 37
-   c,8 \clef treble r16 <g' c'' f''>16~ <g' c'' f''>8 <g' c'' e-flat''?>8 |
+   c,8 \clef treble r16 <g' c'' f''>16~ <g' c'' f''>8 <g' c'' e-flat''>8 |
    \clef bass c,8 \clef treble r16 <g-flat' b-flat' d''>16~ <g-flat' b-flat' d''>8 <g-flat' b-flat' c''> |
-   \clef bass f,8 \clef treble r16 <g-flat' b-flat' e-flat''>16\tenuto~( <g-flat' b-flat' e-flat''>8 <a'? c''>8) | \break
+   \clef bass f,8 \clef treble r16 <g-flat' b-flat' e-flat''>16\tenuto~( <g-flat' b-flat' e-flat''>8 <a' c''>8) | \break
    
    % Measure 40
    \clef bass b-flat,,8 \clef treble r16 <d' f' c''>16~ <d' f' c''>8 <d' f' b-flat'>8 |
    \clef bass b-flat,,8 a-flat8\accent[ b-flat,8\accent c8\accent] |
    d,8 r16 <g-sharp c-sharp' e-sharp'>16~ <g-sharp c-sharp' e-sharp'>8( <a d' f-sharp'>8) |
-   d,8 r16 <b-flat e-flat'? g'?>16\accent~ <b-flat e-flat' g'>4 | \break \pageBreak
+   d,8 r16 <b-flat e-flat' g'>16\accent~ <b-flat e-flat' g'>4 | \break \pageBreak
    
    % Measure 44 
    d,8 r16 <g-sharp c-sharp' e-sharp'>16~ <g-sharp c-sharp' e-sharp'>8( <a d' f-sharp'>8) |
-   d,8 r16 <b-flat e-flat'? g'?>16\accent~ <b-flat e-flat' g'>4 |
+   d,8 r16 <b-flat e-flat' g'>16\accent~ <b-flat e-flat' g'>4 |
    <d, a,>8 r16 <a d' f-sharp' a'>16\accent~ <a d' f-sharp' a'>8 <a d' f-sharp' a'>8\accent\staccato |
    <c, g,>8 \clef treble r16 <c' e-flat' g' c''>16\accent~ <c' e-flat' g' c''>8 <c' e-flat' g' c''>\accent\staccato | \break
    
    % Measure 48
    \clef bass <a,, e,>8 r16 \clef treble <e' a' c'' e''>16\accent~ <e' a' c'' e''>8 <e' a' c'' e''>8\accent\staccato |
-   \clef bass <f,, f,>8 r16 <g e-flat' g'>16\accent~ <g e-flat' g'>8 <f e-flat' f'>8\staccato\accent |
+   \clef bass <f,, f,>8 r16 <g e-flat' g'>16\accent~ <g e-flat' g'>8 <f e-flat' f'>8\accent\staccato |
    b-flat,,8 <f d' f'>16 <f d' f'>16 r16 <f d' f'>16 <f d' f'>8 |
    b-flat,,8 <f e-flat' f'>16 <f e-flat' f'>16 r16 <f e-flat' f'>16 <f e-flat' f'>8 | \break
    
@@ -226,10 +227,8 @@ left_hand = {
    b-flat,,8 f,16 <b-flat, f>16\accent r16 f16 <b-flat f'>8\accent | \break
    
    % Measure 59
-   \set breathMarkType = #'caesura
    b-flat,,8 f,16 <b-flat, f>16\accent r16 f16 <b-flat f'>8\accent |
-   b-flat,,8 f,16 <b-flat, f>16\accent r16 f16 <b-flat f'>8\accent \breathe |
-   \stemDown
+   b-flat,,8 f,16 <b-flat, f>16\accent r16 f16 <b-flat f'>8\accent \set breathMarkType = #'caesura \breathe \stemDown |
    d-flat32[_( e-flat32 f32 g32] a-flat32[ b-flat32 c'32 d-flat'32] \change Staff = "right_hand" e-flat'32[ f'32 g'32 a-flat'32] b-flat'32[ c''32 d-flat''32 e-flat''32] |
    f''8) \change Staff = "left_hand" r8 \stemUp <f b-flat d' f'>16\accent b-flat,,16\accent r8 | \fine
 }
