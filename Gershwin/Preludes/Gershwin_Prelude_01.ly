@@ -4,23 +4,33 @@
 
 %{
 TODO:
-- RH score matches urtext check
-- make RH score pretty
 
-- get rid of all warnings/errors
+- can (should) this be a standalone compiled .ly file?
 - add RH dynamics (none?)
 - add LH dynamics (there are a few)
 - add pedal
 - add dynamics
 - regroup measures
-- paper variables
+- paper variables (padding, system-system spacing, etc)
 - slurs pretty
 
-
 DONE:
+- RH score matches urtext check
+- make RH score pretty
 - LH score matches urtext check
 - LH score is pretty
+
+- bottom section pretty
 %}
+
+
+%{
+Future todo items
+- Get rid of warnings. It complains about clashing rests in measures 3--6
+- RH measure 6 I use \bar"||" because \section is bugged
+- Change first 1/4 of measure 61 RH to the bass clef. Currently I have it here because LP has a bug related to breath and ottava when changing staff
+%}
+
 
 right_hand = {
    \clef treble
@@ -30,41 +40,36 @@ right_hand = {
    
    % Measure 1--6
    c-sharp''16^\accent( d''16) f'8 b-flat'16 b-flat'8.\fermata |
-   c-sharp''16^\accent( d''16) f'8 a-flat'16 a-flat'8.\fermata | \bar"||" 
-      \change Staff = "left_hand" \stemUp
-   c'8.\rest <g b-flat g'>16^\accent c'8\rest <g b-flat g'>8^\accent |
-   c'8.\rest <g b-flat g'>16^\accent c'8\rest <g b-flat g'>8^\accent |
-   c'8.\rest <g b-flat g'>16^\accent c'8\rest <g b-flat g'>8^\accent |
-   c'8.\rest <g b-flat g'>16^\accent c'8\rest <g b-flat g'>8^\accent | \bar"||" \break
+   c-sharp''16^\accent( d''16) f'8 a-flat'16 a-flat'8.\fermata | \section
+   \change Staff = "left_hand" \stemUp c'8.\rest <g b-flat d' g'>16^\accent c'8\rest <g b-flat d' g'>8^\accent |
+   c'8.\rest <g b-flat d' g'>16^\accent c'8\rest <g b-flat d' g'>8^\accent |
+   c'8.\rest <g b-flat d' g'>16^\accent c'8\rest <g b-flat d' g'>8^\accent |
+   c'8.\rest <g b-flat d' g'>16^\accent c'8\rest <g b-flat d' g'>8^\accent | \bar"||"
    
    % Measure 7--11
-      \change Staff = "right_hand" \stemNeutral 
-   c-sharp'''16\accent( d'''16) f''8 b-flat''16 b-flat''8.\accent |
+   \change Staff = "right_hand" \stemNeutral c-sharp'''16\accent( d'''16) f''8 b-flat''16 b-flat''8.\accent |
    c-sharp'''16\accent( d'''16) f''8 a-flat''16 a-flat''8.\accent |
-   f''16( g''16 c-sharp''8) d''16( f''16 f'8\tenuto) |
-   a-flat'16( c''?16 c'16 d'16) f'16 f'8. |
+   f''16( g''16 c-sharp''8\tenuto) d''16( f''16 f'8\tenuto) |
+   a-flat'16( c''16 c'16 d'16) f'16 f'8. |
    f'32( e-flat'32 d'32 c'32 d'8\tenuto) e-flat'32( d'32 c'32 b-flat32 c'8\tenuto) |
    
    % Measure 12
    d'32( c'32 b-flat32 a32 b-flat8\tenuto) c-sharp'32( b32 a32 g32 a8\tenuto) |
-      \clef bass
-   c'32( b-flat32 a-flat32 g32 a-flat8\accent)~ a-flat4~ |
+   \clef bass c'32( b-flat32 a-flat32 g32 a-flat8\accent)~ a-flat4~ |
    a-flat2 |
    R2 |
    
    % Measure 16
-      \clef treble
-   <<{a-flat16( d-flat'16) d-flat'16 d-flat'16 d-flat'16 d-flat'16 d-flat'16 d-flat'16}\\{a-flat2}>> |
+   \clef treble <<{a-flat16\accent( d-flat'16) d-flat'16 d-flat'16 d-flat'16 d-flat'16 d-flat'16 d-flat'16}\\{a-flat2}>> |
    <<{d-flat'16( a-flat'16) a-flat'16 a-flat'16 a-flat'16( b-flat'16) b-flat'8\tenuto\accent~}\\{a-flat2~}>> |
    <<{b-flat'2~}\\{a-flat2~}>> |
    <<{b-flat'2}\\{a-flat2}>> |
-      \override TupletBracket.bracket-visibility = ##t
-   \tuplet 3/2 {a-flat16[ d'16 g'16]} \tuplet 3/2 {c-flat'16[ f'16 b-flat'16]} \tuplet 3/2 {d'?16[ g-sharp'16 c-sharp''16]} \tuplet 3/2 {f'16^[ b'16 e''16]} |
+   \tuplet 3/2 {a-flat16[ d'16 g'16]} \tuplet 3/2 {c-flat'16[ f'16 b-flat'16]} \tuplet 3/2 {d'16[ g-sharp'16 c-sharp''16]} \tuplet 3/2 {f'16^[ b'16 e''16]} |
    
    % Measure 21
-   <e' b' d''>8.\accent^( <e' a' c''>16)~<e' a' c''>8^( <e' a'>8_~ |
-   <e' a' c''>8.) <e' a'>16 r8 d'32( c'32 b-flat32 a32 | 
-   b-flat2\accent~) |
+   <<{\autoBeamOff <e' b' d''>8.\accent( c''16~) \autoBeamOn c''4~}\\{s8. \stemUp <e' a' c''>16~ \stemDown <e' a'>8 <e' a'>8~}>> |
+   <<{c''4.}\\{<e' a'>8. <e' a'>16 r8}>> d'32( c'32 b-flat32 a32 | 
+   b-flat2^\accent~) |
    b-flat2 |
    
    % Measure 25
@@ -74,10 +79,10 @@ right_hand = {
    <<{c''2}\\{b-flat2}>> |
    
    % Measure 29
-   \tuplet 3/2 {b-flat16[ e'16 a'16]} \tuplet 3/2 {d-flat'16[ g'16 c''16]} \tuplet 3/2 {f-flat'16[ b-flat'16 e-flat''16]} \tuplet 3/2 {g'?16[ c-sharp''16 f-sharp''16]} |
-   <f-sharp' c-sharp'' e''>8.\accent r16 r4 |
-   r4 r4 |
-   a16( d'16) d'16 d'16 d'16 d'16 d'16 d'16 |
+   \tuplet 3/2 {b-flat16[ e'16 a'16]} \tuplet 3/2 {d-flat'16[ g'16 c''16]} \tuplet 3/2 {f-flat'16[ b-flat'16 e-flat''?16]} \tuplet 3/2 {g'16[ c-sharp''16 f-sharp''16]} |
+   <<{\autoBeamOff <f-sharp' c-sharp'' e''>8.\accent( d''16~) \autoBeamOn d''4~}\\{s8. \stemUp <f-sharp' b' d''>16~ \stemDown <f-sharp' b'>8 <f-sharp' b'>8~}>> |
+   <<{d''2}\\{<f-sharp' b'>8. <f-sharp' b'>16~ <f-sharp' b'>16 <f-sharp' b'>16 r8}>>  | 
+   a16\accent( d'16) d'16 d'16 d'16 d'16 d'16 d'16 |
    
    % Measure 33
    d'16( e'32 f'32) g'16( f'32 e'32) d'16( e'32 f'32) g'16( f'32 e'32) |
@@ -98,19 +103,19 @@ right_hand = {
    
    % Measure 44
    a''16\accent( d'''16) d''8 a''16\staccato a''8.\tenuto |
-   a''16\accent( d'''16) d''8 a''16( b-flat''32 c'''32 d'''32 e'''32 f'''32 g'''32) |
+   a''16\accent( d'''16) d''8 a''16( b-flat''32 c'''32 d'''32 e-flat'''32 f'''32 g'''32) |
    <<{<a'' d''' f-sharp''' a'''>2\accent}\\{r8 <b' d'' f-sharp''>16^\accent^\staccato r16 r16 <b' d'' f-sharp''>16^\accent^\staccato r8}>> |
-   <<{<c''' e''' g''' c''''>2\accent}\\{r8 <d'' e-flat'' g''>16^\accent^\staccato r16 r16 <d'' e-flat'' g''>16^\accent^\staccato r8}>> |
+   <<{<c''' e-flat''' g''' c''''>2\accent}\\{r8 <d'' e-flat'' g''>16^\accent^\staccato r16 r16 <d'' e-flat'' g''>16^\accent^\staccato r8}>> |
    
    % Measure 48
-   <<{<e''' a''' c'''' e''''>2\accent}\\{r8 <f'' a'' c'''>16^\accent^\staccato r16 r16 <f'' a'' c'''>16^\accent^\staccato r8}>> |
-   <<{<g''' c'''' e-flat'''' g''''>2\accent}\\{r8 <a'' f''' a'''>16^\accent^\staccato r16 r16 <a'' f''' a'''>16^\accent^\staccato r8}>> |
+   <<{\ottava 1 <e''' a''' c'''' e''''>2\accent \ottava 0}\\{r8 <f'' a'' c'''>16^\accent^\staccato r16 r16 <f'' a'' c'''>16^\accent^\staccato r8}>> |
+   <<{\ottava 1 <g''' c'''' e-flat'''' g''''>2\accent \ottava 0}\\{r8 <a' f'' a''>16^\accent^\staccato r16 r16 <b' e-flat'' b''>16^\accent^\staccato r8}>> |
    <<{<c-sharp'' c-sharp'''>16\accent( <d'' d'''>16) f''8 <b-flat' b-flat''>16 <b-flat' b-flat''>8.\accent}\\{r4 r8 r16 b-flat'16}>> |
    <<{<c-sharp'' c-sharp'''>16\accent( <d'' d'''>16) f''8 <a-flat' a-flat''>16 <a-flat' a-flat''>8.\accent}\\{r4 r8 r16 a-flat'16}>> |
    
    % Measure 52
-   f''16( g''16) c-sharp''8 d''32( f''32 b-flat''32 d'''32) f'''16\staccato g'''16\staccato |
-   \ottava 1 <a-flat'' a-flat'''>16 <c''' c''''>16 <c'' c'''>16 <d'' d'''>16 <f'' f'''>16 <f'' f'''>8. \ottava 0 |
+   f''16( g''16) c-sharp''8\tenuto d''32( f''32 b-flat''32 d'''32) f'''16\staccato g'''16\staccato |
+   <a-flat'' a-flat'''>16 <c''' c''''>16 <c'' c'''>16 <d'' d'''>16 <f'' f'''>16 <f'' f'''>8. |
    <<{f'''32\accent( e-flat'''32 d'''32 c'''32 d'''8) e-flat'''32\accent( d-flat'''32 c-flat'''32 a''32 c-flat'''8)}\\{f''4 e-flat''4}>> |
    
    % Measure 55
@@ -120,18 +125,10 @@ right_hand = {
    c'8\accent b-flat8\accent a-flat8\accent g8\accent |
    
    % Measure 59
-   \set breathMarkType = #'caesura
-   a-flat2\accent~ |
+   a-flat2^\accent~ |
    a-flat2 \breathe |
-   \stemUp
-   \change Staff = "left_hand" g32[ a-flat32 b-flat32 c'32] \change Staff = "right_hand" d-flat'32[ e-flat'32 f'32 g'32] a-flat'32[ b-flat'32 c''32 d-flat''32] e-flat''32[ f''32 g''32 a-flat''32] |
-   b-flat''8 r8 \stemDown <b-flat'' d''' f''' b-flat'''>8\accent r8 | \fine
-   
-}
-
-
-dynamics = {
-
+   \stemUp g32[^( a-flat32 b-flat32 c'32] \change Staff = "right_hand" d-flat'32[ e-flat'32 f'32 g'32] a-flat'32[ b-flat'32 c''32 d-flat''32] e-flat''32[ f''32 g''32 a-flat''32] |
+   b-flat''8) r8 \stemDown <b-flat'' d''' f''' b-flat'''>8\accent r8 | \fine 
 }
 
 
@@ -142,17 +139,17 @@ left_hand = {
    
    % Measure 1--6
    R2\fermata |
-   R2\fermata | \bar"||" \stemDown 
+   R2\fermata | \section \stemDown 
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
-   <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent | \bar"||" \stemNeutral  \break
-   
+   <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent | \section \stemNeutral  \break
+
    % Measure 7--11
    b-flat,,8 r16 <f b-flat d' g'>16 r8 <f b-flat d' g'>8 |
    b-flat,,8 r16 <f a? e-flat' f'>16 r8 <f a e-flat' f'>8 |
    b-flat,,8 r16 <f b-flat d' g'>16 r8 <f b-flat d' g'>8 |
-   e-flat,8 r16 <e-flat b-flat g-flat'>16 r8 <e-flat b-flat g-flat'>8 |
+   e-flat,8  r16 <e-flat b-flat g-flat'>16 r8 <e-flat b-flat g-flat'>8 |
    b-flat,,8 r16 \acciaccatura{e8} f16\accent~ f8 f,8 | \break 
    
    % Measure 12
@@ -175,10 +172,10 @@ left_hand = {
    c,8 r16 <g, g>16~ <g, g>16 c8 e16 | \break \pageBreak
    
    % Measure 25
-   c,8 r16 <g, g>16~<g, g>16 c8 e16 | 
-   c,8 r16 <g, g>16~<g, g>16 c8 e16 | 
-   c,8 r16 <g, g>16~<g, g>16 c8 e16 | 
-   c,8 r16 <g, g>16~<g, g>16 c8 e16 | \break
+   c,8 r16 <g, g>16~ <g, g>16 c8 e16 | 
+   c,8 r16 <g, g>16~ <g, g>16 c8 e16 | 
+   c,8 r16 <g, g>16~ <g, g>16 c8 e16 | 
+   c,8 r16 <g, g>16~ <g, g>16 c8 e16 | \break
    
    % Measure 29
    <c, c>8 <e-flat,? e-flat?>8 <g-flat, g-flat>8 <a, a>8 |
@@ -228,14 +225,9 @@ left_hand = {
    
    % Measure 59
    b-flat,,8 f,16 <b-flat, f>16\accent r16 f16 <b-flat f'>8\accent |
-   b-flat,,8 f,16 <b-flat, f>16\accent r16 f16 <b-flat f'>8\accent \set breathMarkType = #'caesura \breathe \stemDown |
+   b-flat,,8 f,16 <b-flat, f>16\accent r16 f16 <b-flat f'>8\accent \breathe \stemDown |
    d-flat32[_( e-flat32 f32 g32] a-flat32[ b-flat32 c'32 d-flat'32] \change Staff = "right_hand" e-flat'32[ f'32 g'32 a-flat'32] b-flat'32[ c''32 d-flat''32 e-flat''32] |
    f''8) \change Staff = "left_hand" r8 \stemUp <f b-flat d' f'>16\accent b-flat,,16\accent r8 | \fine
-}
-
-
-pedal = {
-
 }
 
 
@@ -243,31 +235,29 @@ pedal = {
    \header {
       title = "I"
       composer = "George Gershwin"
-      dedication = "To Bill Daly"
       piece = "Prelude #1"
       tagline = ##f
    }
    
-   \paper {   
-      system-system-spacing =
-      #'((basic-distance . 12)
-         (minimum-distance . 8)
-         (padding . 5)
-         (stretchability . 60))
+   \paper {
    }
 
    \score {
       \new PianoStaff \with {instrumentName = "Piano"}
       <<
          \new Staff = "right_hand" \right_hand
-         \new Dynamics \dynamics
          \new Staff = "left_hand" \left_hand
-         \new Dynamics \pedal
       >>
       \layout {
+         \set breathMarkType = #'caesura
+         \override TupletBracket.bracket-visibility = ##t
          \context {
             \Staff
-            \override VerticalAxisGroup.staff-staff-spacing.basic-distance = #12
+            \remove Ottava_spanner_engraver
+         }
+         \context {
+            \Voice
+            \consists Ottava_spanner_engraver
          }
       }
    }
