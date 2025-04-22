@@ -4,23 +4,10 @@
 
 %{
 TODO:
-
-- can (should) this be a standalone compiled .ly file?
-- add RH dynamics (none?)
-- add LH dynamics (there are a few)
-- add pedal
 - add dynamics
 - regroup measures
-- paper variables (padding, system-system spacing, etc)
+- paper variables (padding, system-system spacing, etc), assuming I can set different paper sections for a compiled file
 - slurs pretty
-
-DONE:
-- RH score matches urtext check
-- make RH score pretty
-- LH score matches urtext check
-- LH score is pretty
-
-- bottom section pretty
 %}
 
 
@@ -31,6 +18,12 @@ Future todo items
 - Change first 1/4 of measure 61 RH to the bass clef. Currently I have it here because LP has a bug related to breath and ottava when changing staff
 %}
 
+
+right_hand_dynamics = {
+   s2 |
+   s2 |
+   s2-"a tempo"
+}
 
 right_hand = {
    \clef treble
@@ -129,6 +122,11 @@ right_hand = {
    a-flat2 \breathe |
    \stemUp g32[^( a-flat32 b-flat32 c'32] \change Staff = "right_hand" d-flat'32[ e-flat'32 f'32 g'32] a-flat'32[ b-flat'32 c''32 d-flat''32] e-flat''32[ f''32 g''32 a-flat''32] |
    b-flat''8) r8 \stemDown <b-flat'' d''' f''' b-flat'''>8\accent r8 | \fine 
+}
+
+
+dynamics = {
+
 }
 
 
@@ -231,6 +229,165 @@ left_hand = {
 }
 
 
+left_hand_dynamics = {
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s8 s16 s16\p s4 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+
+   s2 |
+   s2 |
+   s2\f
+   s2 |
+}
+
+pedal = {
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s8. s16\sustainOn s4 |
+   s2 |
+   s4 s8. s16\sustainOff |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2\sustainOn |
+   s4 s8. s16\sustainOff |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2\sustainOn |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+}
+
+
 \bookpart {
    \header {
       title = "I"
@@ -245,8 +402,12 @@ left_hand = {
    \score {
       \new PianoStaff \with {instrumentName = "Piano"}
       <<
+         \new Dynamics \right_hand_dynamics
          \new Staff = "right_hand" \right_hand
+         \new Dynamics \dynamics
          \new Staff = "left_hand" \left_hand
+         \new Dynamics \left_hand_dynamics
+         \new Dynamics \pedal
       >>
       \layout {
          \set breathMarkType = #'caesura
