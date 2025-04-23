@@ -4,9 +4,9 @@
 
 %{
 TODO:
-- add dynamics
-- regroup measures
+- code quality assurance
 - paper variables (padding, system-system spacing, etc), assuming I can set different paper sections for a compiled file
+- dynamics pretty
 - slurs pretty
 %}
 
@@ -43,7 +43,7 @@ right_hand = {
    \change Staff = "right_hand" \stemNeutral c-sharp'''16\accent( d'''16) f''8 b-flat''16 b-flat''8.\accent |
    c-sharp'''16\accent( d'''16) f''8 a-flat''16 a-flat''8.\accent |
    f''16( g''16 c-sharp''8\tenuto) d''16( f''16 f'8\tenuto) |
-   a-flat'16( c''16 c'16 d'16) f'16 f'8. |
+   a-flat'16( c''16 c'16 d'16) f'16 f'8. | 
    f'32( e-flat'32 d'32 c'32 d'8\tenuto) e-flat'32( d'32 c'32 b-flat32 c'8\tenuto) |
    
    % Measure 12
@@ -57,9 +57,9 @@ right_hand = {
    <<{d-flat'16( a-flat'16) a-flat'16 a-flat'16 a-flat'16( b-flat'16) b-flat'8\tenuto\accent~}\\{a-flat2~}>> |
    <<{b-flat'2~}\\{a-flat2~}>> |
    <<{b-flat'2}\\{a-flat2}>> |
-   \tuplet 3/2 {a-flat16[ d'16 g'16]} \tuplet 3/2 {c-flat'16[ f'16 b-flat'16]} \tuplet 3/2 {d'16[ g-sharp'16 c-sharp''16]} \tuplet 3/2 {f'16^[ b'16 e''16]} |
    
-   % Measure 21
+   % Measure 20
+   \tuplet 3/2 {a-flat16[ d'16 g'16]} \tuplet 3/2 {c-flat'16[ f'16 b-flat'16]} \tuplet 3/2 {d'16[ g-sharp'16 c-sharp''16]} \tuplet 3/2 {f'16^[ b'16 e''16]} |  
    <<{\autoBeamOff <e' b' d''>8.\accent( c''16~) \autoBeamOn c''4~}\\{s8. \stemUp <e' a' c''>16~ \stemDown <e' a'>8 <e' a'>8~}>> |
    <<{c''4.}\\{<e' a'>8. <e' a'>16 r8}>> d'32( c'32 b-flat32 a32 | 
    b-flat2^\accent~) |
@@ -74,7 +74,7 @@ right_hand = {
    % Measure 29
    \tuplet 3/2 {b-flat16[ e'16 a'16]} \tuplet 3/2 {d-flat'16[ g'16 c''16]} \tuplet 3/2 {f-flat'16[ b-flat'16 e-flat''?16]} \tuplet 3/2 {g'16[ c-sharp''16 f-sharp''16]} |
    <<{\autoBeamOff <f-sharp' c-sharp'' e''>8.\accent( d''16~) \autoBeamOn d''4~}\\{s8. \stemUp <f-sharp' b' d''>16~ \stemDown <f-sharp' b'>8 <f-sharp' b'>8~}>> |
-   <<{d''2}\\{<f-sharp' b'>8. <f-sharp' b'>16~ <f-sharp' b'>16 <f-sharp' b'>16 r8}>>  | 
+   <<{d''2}\\{<f-sharp' b'>8. <f-sharp' b'>16~ <f-sharp' b'>16 <f-sharp' b'>16 r8}>>  |
    a16\accent( d'16) d'16 d'16 d'16 d'16 d'16 d'16 |
    
    % Measure 33
@@ -113,7 +113,7 @@ right_hand = {
    
    % Measure 55
    <<{d'''32\accent( c'''32 b-flat''32 a-flat''32 b-flat''8) c-sharp'''32\accent( b''32 a''32 g''32 a''8)}\\{d''4 c-sharp''4}>> |
-   <<{c'''32\accent( b-flat''32 a-flat''32 g''32 a-flat''8)~ a-flat''4}\\{c''4 r16 b-flat'8\accent d''16}>> |
+   <<{c'''32\accent( b-flat''32 a-flat''32 g''32 a-flat''8)~ a-flat''4}\\{c''4 r16 b-flat'8\accent d''16}>> | 
    <<{c''32( b-flat'32 a-flat'32 g'32 a-flat'8)~ a-flat'4}\\{s4 r16 b-flat8\accent d'16}>> |
    c'8\accent b-flat8\accent a-flat8\accent g8\accent |
    
@@ -126,7 +126,82 @@ right_hand = {
 
 
 dynamics = {
-
+   s2\f |
+   s2 |
+   s2\ff |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2\f |
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s8. s16\decresc s4\! |
+   s2 |
+   
+   s2\pp |
+   s8 s8\cresc s4 |
+   s2 |
+   s2\f |
+   
+   s8\p s8\< s4 |
+   s8\mf s8\> s16\! s8. |
+   s2 |
+   s8. s16\decresc s4\! |
+   s2 |
+   
+   s2\p |
+   s8 s8\cresc s4 |
+   s2 |
+   s2\f |
+  
+   s8\p s8\< s4 |
+   s8\mf s8\> s4 |
+   s4 s16 s16\! s8 |
+   s2\mf |
+   
+   s2 |
+   s2 |
+   s2\f |
+   s2\p |
+   
+   s2 |
+   s2 |
+   s2 |
+   
+   s2\f |
+   s2\p |
+   s2\f |
+   s4 s16 s8.\< |
+   
+   s2\! |
+   s2 |
+   s2-"poco a poco cresc."
+   s2 |
+   
+   s2 |
+   s2 |
+   s2\ff |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s2 |
+   s2 |
+   
+   s2 |
+   s2 |
+   s8 s8\> s8 s16 s16\! |
+   s4\p s4\ff |
 }
 
 
@@ -141,14 +216,14 @@ left_hand = {
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
    <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent |
-   <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent | \section \stemNeutral  \break
+   <b-flat,,, b-flat,,>8_\accent g,16\rest <b-flat, f>16_\accent g,8\rest <b-flat, f>8_\accent | \section \stemNeutral \break
 
    % Measure 7--11
    b-flat,,8 r16 <f b-flat d' g'>16 r8 <f b-flat d' g'>8 |
    b-flat,,8 r16 <f a? e-flat' f'>16 r8 <f a e-flat' f'>8 |
    b-flat,,8 r16 <f b-flat d' g'>16 r8 <f b-flat d' g'>8 |
    e-flat,8  r16 <e-flat b-flat g-flat'>16 r8 <e-flat b-flat g-flat'>8 |
-   b-flat,,8 r16 \acciaccatura{e8} f16\accent~ f8 f,8 | \break 
+   b-flat,,8 r16 \acciaccatura{e8} f16\accent~ f8 f,8 | \break
    
    % Measure 12
    b-flat,,8 r16 \acciaccatura{e8} f16\accent~ f8 f,8 |
@@ -160,10 +235,10 @@ left_hand = {
    b-flat,,8 r16 <f, f>16~ <f, f>16 b-flat,8 d?16 |
    b-flat,,8 r16 <f, f>16~ <f, f>16 b-flat,8 d?16 |
    b-flat,,8 r16 <f, f>16~ <f, f>16 b-flat,8 d16 |
-   b-flat,,8 r16 <f, f>16~ <f, f>16 b-flat,8 d16 | 
-   <b-flat,, b-flat,>8 <d-flat, d-flat>8 <e, e>8 <g,? g?>8 | \break
+   b-flat,,8 r16 <f, f>16~ <f, f>16 b-flat,8 d16 | \break
    
-   % Measure 21
+   % Measure 20
+   <b-flat,, b-flat,>8 <d-flat, d-flat>8 <e, e>8 <g,? g?>8 |
    c,8 g,16 g16~ g16 g16 g'8\accent |
    c,8 g,16 g16~ g16 g'16 r8 |
    c,8 r16 <g, g>16~ <g, g>16 c8 e16 | 
